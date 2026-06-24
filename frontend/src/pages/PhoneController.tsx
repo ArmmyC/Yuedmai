@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Camera, Clock, Loader2, Pause, Play, RotateCcw, SkipForward, Square } from "lucide-react";
+import { Camera, Clock, Loader2, Pause, Play, RotateCcw, SkipForward, Sparkles, Square } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 import {
@@ -25,6 +25,7 @@ type Room = {
   status: string;
   selected_routine?: Routine | null;
   session?: {
+    id: string;
     current_index: number;
     current_name?: string | null;
     total_stretches: number;
@@ -75,16 +76,27 @@ export default function PhoneController() {
     };
   }, [code, navigate]);
 
-  const routine = room?.selected_routine ?? routines[0];
+  const routine = room?.selected_routine ?? null;
   const stretches = routine?.stretches ?? [];
-  const durationMinutes = routine ? Math.max(1, Math.round(routine.duration_seconds / 60)) : 3;
+  const durationMinutes = routine ? Math.max(1, Math.round(routine.duration_seconds / 60)) : 0;
   const isActive = room?.status === "active";
   const isPaused = room?.status === "paused";
-  const canStart = room?.status === "connected" || room?.status === "routine_selected" || room?.status === "calibrating";
+  const hasRoutineSelected = Boolean(room?.selected_routine);
+  const hasCameraPreview = room?.status === "calibrating" && !room?.session;
+  const isCalibrationRunning = room?.status === "calibrating" && Boolean(room?.session);
+  const canShowCamera = hasRoutineSelected && (room?.status === "connected" || room?.status === "routine_selected");
+  const canStartQuest = hasRoutineSelected && (room?.status === "routine_selected" || hasCameraPreview);
+  const canChooseRoutine = room?.status === "connected" || room?.status === "routine_selected";
 
   const statusText = useMemo(() => {
     if (!room) {
       return "Connecting";
+    }
+    if (isCalibrationRunning) {
+      return "Calibrating";
+    }
+    if (hasCameraPreview) {
+      return "Camera preview";
     }
     if (room.status === "active") {
       return "Quest live";
@@ -96,7 +108,7 @@ export default function PhoneController() {
       return "Complete";
     }
     return "Connected";
-  }, [room]);
+  }, [hasCameraPreview, isCalibrationRunning, room]);
 
   async function ensureRoutineSelected() {
     if (room?.selected_routine || !routine) {
@@ -104,6 +116,19 @@ export default function PhoneController() {
     }
     const nextRoom = await selectRoomRoutine(code, routine.id);
     setRoom(nextRoom);
+  }
+
+  async function chooseRoutine(nextRoutine: Routine) {
+    try {
+      setBusyCommand(`routine:${nextRoutine.id}`);
+      setError("");
+      const nextRoom = await selectRoomRoutine(code, nextRoutine.id);
+      setRoom(nextRoom);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not select this routine.");
+    } finally {
+      setBusyCommand("");
+    }
   }
 
   async function runCommand(command: string, label: string, before?: () => Promise<void>) {
@@ -141,27 +166,77 @@ export default function PhoneController() {
           </div>
         </div>
 
-        <div className="rounded-3xl p-6 bg-gradient-panel border border-border relative overflow-hidden">
-          <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_80%_0%,hsl(var(--primary)/0.20),transparent_60%)]" />
-          <div className="relative">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs px-2 py-1 rounded-md bg-primary/15 text-primary border border-primary/30">Selected routine</span>
-              <span className="flex items-center gap-1 text-xs text-muted-foreground"><Clock className="h-3.5 w-3.5" /> {durationMinutes} min</span>
-            </div>
-            <h2 className="font-display text-2xl font-semibold">{routine?.name ?? "Loading routine"}</h2>
-            <p className="text-sm text-muted-foreground mt-1">{routine?.description ?? "Preparing your stretch quest."}</p>
-
-            <ul className="mt-4 space-y-2">
-              {stretches.map((stretch, index) => (
-                <li key={stretch} className="flex items-center gap-3 text-sm">
-                  <span className="h-6 w-6 rounded-full bg-surface border border-border grid place-items-center text-[11px] font-mono text-muted-foreground">
-                    {index + 1}
-                  </span>
-                  <span>{stretch}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">Pick a quest</div>
+            {routine ? (
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="h-3.5 w-3.5" /> {durationMinutes} min
+              </div>
+            ) : null}
           </div>
+
+          {routines.map((option) => {
+            const selected = room?.selected_routine?.id === option.id;
+            const loading = busyCommand === `routine:${option.id}`;
+            const optionDurationMinutes = Math.max(1, Math.round(option.duration_seconds / 60));
+
+            return (
+              <div
+                key={option.id}
+                className={`rounded-3xl p-6 border relative overflow-hidden transition-colors ${
+                  selected ? "bg-gradient-panel border-primary/35" : "bg-surface/55 border-border"
+                }`}
+              >
+                <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_80%_0%,hsl(var(--primary)/0.18),transparent_60%)]" />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-3 gap-3">
+                    <span
+                      className={`text-xs px-2 py-1 rounded-md border ${
+                        selected ? "bg-primary/15 text-primary border-primary/30" : "bg-background/40 text-muted-foreground border-border"
+                      }`}
+                    >
+                      {selected ? "Selected routine" : "Quest option"}
+                    </span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground shrink-0">
+                      <Clock className="h-3.5 w-3.5" /> {optionDurationMinutes} min
+                    </span>
+                  </div>
+
+                  <h2 className="font-display text-2xl font-semibold">{option.name}</h2>
+                  <p className="text-sm text-muted-foreground mt-1">{option.description}</p>
+
+                  <div className="mt-4">
+                    {selected ? (
+                      <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-3 py-1.5 text-xs text-primary">
+                        <Sparkles className="h-3.5 w-3.5" /> Routine ready
+                      </div>
+                    ) : (
+                      <button
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-2xl border border-primary/35 bg-primary/10 px-4 text-sm font-medium text-primary transition-colors hover:bg-primary/15 disabled:cursor-not-allowed disabled:opacity-60"
+                        disabled={Boolean(busyCommand) || !canChooseRoutine}
+                        onClick={() => void chooseRoutine(option)}
+                      >
+                        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+                        Choose this quest
+                      </button>
+                    )}
+                  </div>
+
+                  <ul className="mt-4 space-y-2">
+                    {option.stretches.map((stretch, index) => (
+                      <li key={stretch} className="flex items-center gap-3 text-sm">
+                        <span className="h-6 w-6 rounded-full bg-surface border border-border grid place-items-center text-[11px] font-mono text-muted-foreground">
+                          {index + 1}
+                        </span>
+                        <span>{stretch}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {error ? (
@@ -172,20 +247,20 @@ export default function PhoneController() {
 
         <button
           className="w-full h-14 rounded-2xl border border-primary/40 bg-primary/10 text-primary font-medium flex items-center justify-center gap-2 hover:bg-primary/15 transition-colors disabled:cursor-not-allowed disabled:opacity-60"
-          disabled={!canStart || Boolean(busyCommand)}
+          disabled={!canShowCamera || Boolean(busyCommand)}
           onClick={() => runCommand("START_CALIBRATION", "calibration", ensureRoutineSelected)}
         >
           {busyCommand === "calibration" ? <Loader2 className="h-5 w-5 animate-spin" /> : <Camera className="h-5 w-5" />}
-          Start Calibration
+          Show Camera
         </button>
 
         <button
           className="w-full h-16 rounded-2xl bg-gradient-primary text-primary-foreground font-display text-lg font-semibold flex items-center justify-center gap-2 shadow-glow active:scale-[0.99] transition-transform disabled:cursor-not-allowed disabled:opacity-60"
-          disabled={!canStart || Boolean(busyCommand)}
+          disabled={!canStartQuest || Boolean(busyCommand)}
           onClick={() => runCommand("START_SESSION", "start", ensureRoutineSelected)}
         >
           {busyCommand === "start" ? <Loader2 className="h-5 w-5 animate-spin" /> : <Play className="h-5 w-5 fill-current" />}
-          Start Quest
+          {isCalibrationRunning ? "Starting..." : "Start Quest"}
         </button>
 
         <div className="grid grid-cols-3 gap-3">

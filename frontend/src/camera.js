@@ -7,7 +7,6 @@ export async function startCamera(videoElement) {
     video: {
       width: { ideal: 960 },
       height: { ideal: 540 },
-      facingMode: "user",
     },
     audio: false,
   });

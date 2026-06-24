@@ -124,6 +124,5 @@ export function openRoomSocket(roomCode, role, handlers = {}) {
     }
   });
   socket.addEventListener("close", () => handlers.onClose?.());
-  socket.addEventListener("error", () => handlers.onError?.("Connection error"));
   return socket;
 }

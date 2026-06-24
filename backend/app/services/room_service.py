@@ -74,7 +74,7 @@ class RoomService:
             self._sockets.clear()
 
     def list_routines(self) -> list[RoutineSummary]:
-        return [QUICK_RESET_ROUTINE]
+        return list(SUPPORTED_ROUTINES.values())
 
     def create_room(self) -> RoomResponse:
         with self._lock:
@@ -142,6 +142,8 @@ class RoomService:
                 self._start_calibration_locked(room)
             elif command is RoomCommandType.start_session:
                 self._start_session_locked(room)
+            elif command is RoomCommandType.begin_active_session:
+                self._begin_active_session_locked(room)
             elif command is RoomCommandType.pause_session:
                 self._pause_session_locked(room)
             elif command is RoomCommandType.resume_session:
@@ -174,17 +176,24 @@ class RoomService:
         await websocket.send_json(RoomEvent(type="ROOM_STATE", room=snapshot).model_dump(mode="json"))
         return snapshot
 
-    async def disconnect(self, room_code: str, role: str, websocket: WebSocket) -> None:
+    async def disconnect(self, room_code: str, role: str, websocket: WebSocket) -> bool:
         with self._lock:
             group = self._sockets.get(room_code)
             if group is None:
-                return
+                return False
             sockets = getattr(group, role, None)
             if sockets is None:
-                return
+                return False
             sockets.discard(websocket)
+            room_reset = False
+            if role == "controller" and not group.controller:
+                room = self._rooms.get(room_code)
+                if room is not None and room.status is not RoomStatus.expired:
+                    self._reset_to_waiting_locked(room)
+                    room_reset = True
             if not group.display and not group.controller:
                 self._sockets.pop(room_code, None)
+            return room_reset
 
     async def broadcast_room(self, room_code: str) -> None:
         with self._lock:
@@ -244,13 +253,34 @@ class RoomService:
         if room.status not in {RoomStatus.routine_selected, RoomStatus.calibrating}:
             raise RoomConflictError("The quest cannot start from the current room state.")
 
-        routine = SUPPORTED_ROUTINES[room.selected_routine_id]
-        session = session_engine.create_session(routine.stretches)
-        session.state = "active"
+        if room.session_id is None:
+            routine = SUPPORTED_ROUTINES[room.selected_routine_id]
+            session = session_engine.create_session(routine.stretches)
+            session.state = "ready"
+            room.session_id = session.id
+            room.skipped_segments = []
+            room.elapsed_seconds = 0
+        else:
+            session = self._get_room_session_locked(room)
+            if session.state == "complete":
+                raise RoomConflictError("This room needs a new quest before starting again.")
 
-        room.session_id = session.id
+        room.status = RoomStatus.calibrating
+        room.timer_started_at = None
+        self._touch_locked(room)
+
+    def _begin_active_session_locked(self, room: RoomRecord) -> None:
+        self._ensure_controller_locked(room)
+        self._ensure_routine_locked(room)
+        if room.status is not RoomStatus.calibrating:
+            raise RoomConflictError("The quest can only go live after calibration.")
+
+        session = self._get_room_session_locked(room)
+        if session.state == "complete":
+            raise RoomConflictError("This room needs a new quest before starting again.")
+
+        session.state = "active"
         room.status = RoomStatus.active
-        room.skipped_segments = []
         room.elapsed_seconds = 0
         room.timer_started_at = self._now()
         self._touch_locked(room)
@@ -436,6 +466,20 @@ class RoomService:
     def _touch_locked(self, room: RoomRecord) -> None:
         room.updated_at = self._now()
 
+    def _reset_to_waiting_locked(self, room: RoomRecord) -> None:
+        now = self._now()
+        room.status = RoomStatus.waiting
+        room.controller_mode = None
+        room.selected_routine_id = None
+        room.session_id = None
+        room.skipped_segments = []
+        room.elapsed_seconds = 0
+        room.timer_started_at = None
+        room.last_command_type = None
+        room.last_command_at = None
+        room.expires_at = now + self._ttl
+        room.updated_at = now
+
     def _prune_locked(self, now: datetime) -> None:
         removable: list[str] = []
         for code, room in self._rooms.items():
@@ -468,6 +512,38 @@ class RoomService:
             return "Stand where the camera can see you."
         if "center your body" in feedback_tags:
             return "Center your shoulders in the frame."
+        if "show upper body" in feedback_tags:
+            return "Show your upper body in the frame."
+        if "show full body" in feedback_tags:
+            return "Show your full body in the frame."
+        if "tilt your head gently" in feedback_tags:
+            return "Tilt your head gently."
+        if "relax your shoulders" in feedback_tags:
+            return "Relax your shoulders."
+        if "open both arms wider" in feedback_tags:
+            return "Open both arms wider."
+        if "lift arms to shoulder height" in feedback_tags:
+            return "Lift your arms to shoulder height."
+        if "even out both arms" in feedback_tags:
+            return "Even out both arms."
+        if "reach one arm up" in feedback_tags:
+            return "Reach one arm up."
+        if "lean farther to the side" in feedback_tags:
+            return "Lean farther to the side."
+        if "lean away from raised arm" in feedback_tags:
+            return "Lean away from your raised arm."
+        if "keep hips level" in feedback_tags:
+            return "Keep your hips level."
+        if "reach lower" in feedback_tags:
+            return "Reach lower."
+        if "hinge forward a little more" in feedback_tags:
+            return "Hinge forward a little more."
+        if "reach toward your shins" in feedback_tags:
+            return "Reach toward your shins."
+        if "keep hips even" in feedback_tags:
+            return "Keep your hips even."
+        if "hold the shape" in feedback_tags:
+            return "Hold the shape."
         if "improve lighting" in feedback_tags:
             return "Make sure the area is well lit."
         return "Hold steady. You are doing great."

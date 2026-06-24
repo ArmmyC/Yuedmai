@@ -27,6 +27,7 @@ class ControllerMode(str, Enum):
 class RoomCommandType(str, Enum):
     start_calibration = "START_CALIBRATION"
     start_session = "START_SESSION"
+    begin_active_session = "BEGIN_ACTIVE_SESSION"
     pause_session = "PAUSE_SESSION"
     resume_session = "RESUME_SESSION"
     next_stretch = "NEXT_STRETCH"
@@ -56,8 +57,22 @@ QUICK_RESET_ROUTINE = RoutineSummary(
     description="A short stretch quest for study or desk breaks.",
 )
 
+MEME_MODE_ROUTINE = RoutineSummary(
+    id="meme-mode",
+    name="Meme Mode",
+    duration_seconds=160,
+    stretches=[
+        "Victory pose",
+        "T-rex arms",
+        "Disco point",
+        "Robot freeze",
+    ],
+    description="A playful pose quest with weird little moves instead of real stretches.",
+)
+
 SUPPORTED_ROUTINES: dict[str, RoutineSummary] = {
     QUICK_RESET_ROUTINE.id: QUICK_RESET_ROUTINE,
+    MEME_MODE_ROUTINE.id: MEME_MODE_ROUTINE,
 }
 
 

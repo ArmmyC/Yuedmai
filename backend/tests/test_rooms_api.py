@@ -44,8 +44,23 @@ def test_join_duplicate_join_and_routine_selection_flow() -> None:
     assert duplicate.status_code == 409
     assert routines.status_code == 200
     assert routines.json()["routines"][0]["name"] == "Quick Reset"
+    assert any(routine["id"] == "meme-mode" for routine in routines.json()["routines"])
     assert selected.status_code == 200
     assert selected.json()["status"] == "routine_selected"
+
+
+def test_fun_routine_can_be_selected_over_api() -> None:
+    room = client.post("/api/rooms").json()
+    client.post(f"/api/rooms/{room['code']}/join", json={"mode": "guest"})
+
+    selected = client.post(
+        f"/api/rooms/{room['code']}/routine",
+        json={"routine_id": "meme-mode"},
+    )
+
+    assert selected.status_code == 200
+    assert selected.json()["selected_routine"]["name"] == "Meme Mode"
+    assert "T-rex arms" in selected.json()["selected_routine"]["stretches"]
 
 
 def test_room_commands_handle_valid_and_invalid_state_changes() -> None:
@@ -60,6 +75,7 @@ def test_room_commands_handle_valid_and_invalid_state_changes() -> None:
 
     calibration = client.post(f"/api/rooms/{code}/commands", json={"type": "START_CALIBRATION"})
     quest = client.post(f"/api/rooms/{code}/commands", json={"type": "START_SESSION"})
+    go_live = client.post(f"/api/rooms/{code}/commands", json={"type": "BEGIN_ACTIVE_SESSION"})
     pause = client.post(f"/api/rooms/{code}/commands", json={"type": "PAUSE_SESSION"})
     resume = client.post(f"/api/rooms/{code}/commands", json={"type": "RESUME_SESSION"})
     skip = client.post(f"/api/rooms/{code}/commands", json={"type": "SKIP_STRETCH"})
@@ -71,7 +87,10 @@ def test_room_commands_handle_valid_and_invalid_state_changes() -> None:
     assert calibration.status_code == 200
     assert calibration.json()["status"] == "calibrating"
     assert quest.status_code == 200
-    assert quest.json()["status"] == "active"
+    assert quest.json()["status"] == "calibrating"
+    assert quest.json()["session"] is not None
+    assert go_live.status_code == 200
+    assert go_live.json()["status"] == "active"
     assert pause.status_code == 200
     assert pause.json()["status"] == "paused"
     assert resume.status_code == 200
@@ -99,6 +118,30 @@ def test_display_websocket_receives_room_updates() -> None:
         update = websocket.receive_json()
         assert update["type"] == "ROOM_UPDATED"
         assert update["room"]["status"] == "connected"
+
+
+def test_display_resets_to_waiting_when_controller_disconnects() -> None:
+    room = client.post("/api/rooms").json()
+    code = room["code"]
+    joined = client.post(f"/api/rooms/{code}/join", json={"mode": "guest"})
+
+    assert joined.status_code == 200
+
+    with client.websocket_connect(f"/ws/rooms/{code}/display") as display_socket:
+        initial = display_socket.receive_json()
+        assert initial["type"] == "ROOM_STATE"
+        assert initial["room"]["status"] == "connected"
+
+        with client.websocket_connect(f"/ws/rooms/{code}/controller") as controller_socket:
+            controller_initial = controller_socket.receive_json()
+            assert controller_initial["type"] == "ROOM_STATE"
+            assert controller_initial["room"]["status"] == "connected"
+
+        reset = display_socket.receive_json()
+        assert reset["type"] == "ROOM_UPDATED"
+        assert reset["room"]["status"] == "waiting"
+        assert reset["room"]["controller_mode"] is None
+        assert reset["room"]["selected_routine"] is None
 
 
 def test_existing_session_and_pose_endpoints_still_work() -> None:

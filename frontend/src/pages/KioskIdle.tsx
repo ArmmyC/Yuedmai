@@ -21,6 +21,7 @@ type Room = {
     description: string;
   } | null;
   session?: {
+    id: string;
     current_index: number;
     current_name?: string | null;
     total_stretches: number;
@@ -179,21 +180,21 @@ export default function KioskIdle() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="px-5 py-4 rounded-2xl panel">
-                    <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground mb-1">Join code</div>
-                    <div className="font-mono text-4xl font-bold tracking-[0.3em] text-primary">{room.code}</div>
+                {userJoined ? (
+                  <div className="text-sm text-muted-foreground max-w-[260px] leading-relaxed">
+                    Connected and ready for the next step.
                   </div>
-                  <div className="text-sm text-muted-foreground max-w-[240px] leading-relaxed break-words">
-                    {userJoined ? (
-                      <span>Connected and ready for the next step.</span>
-                    ) : (
-                      <>
-                        Or visit <span className="text-foreground font-mono">/join/{room.code}</span> to connect.
-                      </>
-                    )}
+                ) : (
+                  <div className="flex items-center gap-4">
+                    <div className="px-5 py-4 rounded-2xl panel">
+                      <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground mb-1">Join code</div>
+                      <div className="font-mono text-4xl font-bold tracking-[0.3em] text-primary">{room.code}</div>
+                    </div>
+                    <div className="text-sm text-muted-foreground max-w-[240px] leading-relaxed break-words">
+                      Or visit <span className="text-foreground font-mono">/join/{room.code}</span> to connect.
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <div className="col-span-7 flex items-center justify-center min-h-0">

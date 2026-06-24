@@ -21,6 +21,15 @@ class PoseScoreRequest(BaseModel):
     confidence: float = Field(default=0.75, ge=0.0, le=1.0)
     steady: bool = True
     hold_seconds: float = Field(default=0.0, ge=0.0)
+    stretch_name: str | None = None
+    alignment_score: float = Field(default=0.0, ge=0.0, le=1.0)
+    torso_lean: float = Field(default=0.0, ge=0.0, le=1.0)
+    arm_lift_score: float = Field(default=0.0, ge=0.0, le=1.0)
+    hip_level_score: float = Field(default=0.0, ge=0.0, le=1.0)
+    full_body_visible: bool = False
+    direction_matched: bool = False
+    hold_ready: bool = False
+    feedback_tags: list[str] = Field(default_factory=list)
 
 
 @router.post("")

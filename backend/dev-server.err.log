@@ -1,324 +1,40 @@
-INFO:     Started server process [12152]
+INFO:     Will watch for changes in these directories: ['C:\\Users\\armmy-notebook\\Desktop\\ArmmyWorkspace\\Yuedmai\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [4448] using WatchFiles
+INFO:     Started server process [32912]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     127.0.0.1:59257 - "WebSocket /ws/rooms/GG99/display" [accepted]
+INFO:     127.0.0.1:55128 - "WebSocket /ws/rooms/BKK3/display" [accepted]
 INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:61728 - "WebSocket /ws/rooms/5JX6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53343 - "WebSocket /ws/rooms/5JX6/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:63131 - "WebSocket /ws/rooms/KJ9J/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:61051 - "WebSocket /ws/rooms/5PK3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:52490 - "WebSocket /ws/rooms/5PK3/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:62793 - "WebSocket /ws/rooms/5PK3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:61076 - "WebSocket /ws/rooms/ZLNP/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:52584 - "WebSocket /ws/rooms/KJ9J/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53317 - "WebSocket /ws/rooms/TBN6/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:60141 - "WebSocket /ws/rooms/TBN6/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:60416 - "WebSocket /ws/rooms/7G36/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57412 - "WebSocket /ws/rooms/KJ9J/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:63464 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:49365 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:62458 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:54941 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:54186 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53551 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53103 - "WebSocket /ws/rooms/BQPM/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50391 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:61670 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:64747 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:62013 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:58697 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:63497 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:61919 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51066 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:60093 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50400 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:56246 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50060 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53548 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51615 - "WebSocket /ws/rooms/CFCT/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:55507 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:54851 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50937 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:64101 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50145 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51094 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57589 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:56585 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59467 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:63227 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:56683 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53856 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:65049 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57167 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:52418 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
+INFO:     127.0.0.1:55129 - "WebSocket /ws/rooms/BKK3/controller" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:60626 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:49925 - "WebSocket /ws/rooms/TNQ3/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:55341 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59236 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50233 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51727 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:55130 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:58814 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50299 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:55259 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51893 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:60590 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50907 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:49670 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:52244 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57840 - "WebSocket /ws/rooms/ELH6/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:58432 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:49668 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:60025 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51713 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:51028 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:64159 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53991 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:63075 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57294 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:53021 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50995 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:57034 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:54189 - "WebSocket /ws/rooms/AVEV/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:56373 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:50068 - "WebSocket /ws/rooms/MRU9/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:65055 - "WebSocket /ws/rooms/MRU9/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:55934 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:58906 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:54289 - "WebSocket /ws/rooms/NQJA/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:59737 - "WebSocket /ws/rooms/NQJA/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:58213 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:52101 - "WebSocket /ws/rooms/NQJA/display" [accepted]
+INFO:     127.0.0.1:58407 - "WebSocket /ws/rooms/Q6UF/display" [accepted]
 INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59436 - "WebSocket /ws/rooms/AVEV/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:63711 - "WebSocket /ws/rooms/GFCN/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:52905 - "WebSocket /ws/rooms/GFCN/controller" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59119 - "WebSocket /ws/rooms/GFCN/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59557 - "WebSocket /ws/rooms/GFCN/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:59101 - "WebSocket /ws/rooms/SYEU/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:59736 - "WebSocket /ws/rooms/SYEU/controller" [accepted]
+INFO:     127.0.0.1:60236 - "WebSocket /ws/rooms/Q6UF/controller" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:60792 - "WebSocket /ws/rooms/BK2B/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:59088 - "WebSocket /ws/rooms/BK2B/controller" [accepted]
+INFO:     127.0.0.1:61136 - "WebSocket /ws/rooms/Q6UF/controller" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:53457 - "WebSocket /ws/rooms/BK2B/display" [accepted]
+INFO:     127.0.0.1:50209 - "WebSocket /ws/rooms/3S5X/display" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:51327 - "WebSocket /ws/rooms/BK2B/display" [accepted]
+INFO:     127.0.0.1:50269 - "WebSocket /ws/rooms/3S5X/controller" [accepted]
 INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:52621 - "WebSocket /ws/rooms/5Z2J/display" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     127.0.0.1:63374 - "WebSocket /ws/rooms/5Z2J/controller" [accepted]
+INFO:     127.0.0.1:50535 - "WebSocket /ws/pose-stream" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:53018 - "WebSocket /ws/rooms/5Z2J/display" [accepted]
-INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:64274 - "WebSocket /ws/rooms/YZMD/display" [accepted]
+INFO:     127.0.0.1:50123 - "WebSocket /ws/rooms/3S5X/controller" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:50081 - "WebSocket /ws/rooms/YZMD/display" [accepted]
+INFO:     127.0.0.1:63660 - "WebSocket /ws/rooms/3S5X/display" [accepted]
 INFO:     connection open
-INFO:     127.0.0.1:49668 - "WebSocket /ws/rooms/YZMD/controller" [accepted]
+INFO:     127.0.0.1:50070 - "WebSocket /ws/rooms/3S5X/controller" [accepted]
 INFO:     connection open
-INFO:     connection closed
-INFO:     connection closed
-INFO:     127.0.0.1:52882 - "WebSocket /ws/rooms/5Z2J/display" [accepted]
+INFO:     127.0.0.1:64882 - "WebSocket /ws/pose-stream" [accepted]
 INFO:     connection open
 INFO:     connection closed
-INFO:     127.0.0.1:61536 - "WebSocket /ws/rooms/GPBZ/display" [accepted]
-INFO:     connection open
-INFO:     127.0.0.1:62398 - "WebSocket /ws/rooms/GPBZ/controller" [accepted]
-INFO:     connection open
 INFO:     connection closed

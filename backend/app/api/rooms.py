@@ -116,4 +116,7 @@ async def _room_socket(websocket: WebSocket, room_code: str, *, role: str) -> No
         return
     finally:
         if accepted:
-            await room_service.disconnect(room_code.strip().upper(), role, websocket)
+            normalized_code = room_code.strip().upper()
+            room_reset = await room_service.disconnect(normalized_code, role, websocket)
+            if room_reset:
+                await room_service.broadcast_room(normalized_code)
