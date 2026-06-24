@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health, notifications, pose, quests, sessions
+from app.api import health, notifications, pose, quests, rooms, sessions
 from app.core.config import settings
 
 app = FastAPI(title=settings.app_name)
@@ -17,6 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
+app.include_router(rooms.router)
 app.include_router(sessions.router)
 app.include_router(quests.router)
 app.include_router(notifications.router)

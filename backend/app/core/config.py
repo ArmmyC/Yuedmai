@@ -11,6 +11,7 @@ class Settings:
     frontend_origin: str = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
     pose_backend: str = os.getenv("POSE_BACKEND", "mock")
     database_url: str = os.getenv("DATABASE_URL", "sqlite:///./yuedmai.db")
+    room_ttl_seconds: int = int(os.getenv("ROOM_TTL_SECONDS", "600"))
 
 
 settings = Settings()

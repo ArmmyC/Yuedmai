@@ -35,6 +35,9 @@ class SessionEngine:
     def get_session(self, session_id: str) -> StretchSession | None:
         return self._sessions.get(session_id)
 
+    def reset(self) -> None:
+        self._sessions.clear()
+
     def score_current(self, session_id: str, signal: PoseSignal) -> StretchSession | None:
         session = self._sessions.get(session_id)
         if session is None or session.state == "complete":

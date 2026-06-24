@@ -1,85 +1,74 @@
-import { advanceSession, createSession, loadDailyQuests, openPoseSocket, scoreSession } from "./api.js";
-import { frameHint, startCamera } from "./camera.js";
-import { enableReminderPreview, registerServiceWorker } from "./notifications.js";
 import "./styles.css";
 
-const el = (id) => document.getElementById(id);
+import { registerServiceWorker } from "./notifications.js";
+import { parseRoute } from "./router.js";
+import { renderControllerRoute } from "./routes/controller.js";
+import { renderDisplayRoute } from "./routes/display.js";
+import { renderHomeRoute } from "./routes/home.js";
+import { renderJoinRoute } from "./routes/join.js";
 
-const state = {
-  session: null,
-  poseSocket: null,
-  cameraStartedAt: 0,
-  lastSignal: null,
-};
+const app = document.getElementById("app");
 
-function renderSession(session) {
-  if (!session) return;
-  const segment = session.segments[session.current_index];
-  el("stretch-name").textContent = segment ? segment.name : "Complete";
-  el("score-value").textContent = String(session.total_score || 0);
-  el("xp-value").textContent = String(session.xp_earned || 0);
-  const stars = segment ? segment.stars : 0;
-  el("stars").textContent = "★".repeat(stars) + "☆".repeat(3 - stars);
-}
-
-async function renderQuests() {
-  const quests = await loadDailyQuests();
-  el("quest-list").innerHTML = quests
-    .map((quest) => `<li><strong>${quest.title}</strong><span>${quest.reward_xp} XP</span></li>`)
-    .join("");
-}
-
-async function handleStartCamera() {
-  const video = el("camera-preview");
-  await startCamera(video);
-  state.cameraStartedAt = Date.now();
-  el("pose-message").textContent = "Camera active";
-
-  if (!state.poseSocket) {
-    state.poseSocket = openPoseSocket(async (result) => {
-      state.lastSignal = result.signal;
-      el("pose-message").textContent = result.message;
-      if (state.session) {
-        state.session = await scoreSession(state.session.id, result.signal);
-        renderSession(state.session);
-      }
-    });
-  }
-
-  window.setInterval(() => {
-    if (!state.poseSocket || state.poseSocket.readyState !== WebSocket.OPEN) return;
-    const holdSeconds = Math.max(0, (Date.now() - state.cameraStartedAt) / 1000);
-    state.poseSocket.send(JSON.stringify(frameHint(video, holdSeconds)));
-  }, 1000);
-}
-
-async function handleStartSession() {
-  state.session = await createSession();
-  renderSession(state.session);
-}
-
-async function handleAdvance() {
-  if (!state.session) return;
-  const payload = await advanceSession(state.session.id);
-  state.session = payload.session;
-  renderSession(state.session);
-  if (payload.completed_quests && payload.completed_quests.length) {
-    el("pose-message").textContent = `Quest complete: ${payload.completed_quests.join(", ")}`;
-  }
+function renderNotFound() {
+  app.innerHTML = `
+    <main class="page-shell phone-shell">
+      <section class="panel narrow-panel">
+        <p class="eyebrow">Not Found</p>
+        <h1 class="phone-title">This page is unavailable</h1>
+        <p class="status-copy">Try opening the display screen to create a new room.</p>
+        <a class="button-link primary-button wide-button" href="/display">Open display</a>
+      </section>
+    </main>
+  `;
 }
 
 async function main() {
-  await registerServiceWorker();
-  await renderQuests();
-  el("start-camera").addEventListener("click", handleStartCamera);
-  el("start-session").addEventListener("click", handleStartSession);
-  el("advance-stretch").addEventListener("click", handleAdvance);
-  el("enable-notifications").addEventListener("click", async () => {
-    el("pose-message").textContent = await enableReminderPreview();
-  });
+  try {
+    await registerServiceWorker();
+  } catch (error) {
+    console.error("Service worker registration failed", error);
+  }
+
+  const route = parseRoute(window.location.pathname);
+
+  if (route.name === "home") {
+    renderHomeRoute(app);
+    return;
+  }
+
+  if (route.name === "display-create") {
+    await renderDisplayRoute(app, null);
+    return;
+  }
+
+  if (route.name === "display-room") {
+    await renderDisplayRoute(app, route.roomCode);
+    return;
+  }
+
+  if (route.name === "join") {
+    await renderJoinRoute(app, route.roomCode);
+    return;
+  }
+
+  if (route.name === "controller") {
+    await renderControllerRoute(app, route.roomCode);
+    return;
+  }
+
+  renderNotFound();
 }
 
 main().catch((error) => {
   console.error(error);
-  el("pose-message").textContent = error.message || "Something went wrong";
+  app.innerHTML = `
+    <main class="page-shell phone-shell">
+      <section class="panel narrow-panel">
+        <p class="eyebrow">App Error</p>
+        <h1 class="phone-title">Something went wrong</h1>
+        <p class="status-copy">${error.message || "Refresh the page and try again."}</p>
+        <a class="button-link primary-button wide-button" href="/display">Open display</a>
+      </section>
+    </main>
+  `;
 });
