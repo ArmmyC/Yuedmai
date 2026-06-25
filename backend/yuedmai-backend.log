@@ -1,0 +1,346 @@
+INFO:     Started server process [59290]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+INFO:     127.0.0.1:34904 - "HEAD / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34920 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33510 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/DHZS HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "WebSocket /ws/rooms/DHZS/display" [accepted]
+INFO:     connection open
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     2a14:7c1:498a::1:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a05:9403::5f9:0 - "HEAD / HTTP/1.1" 200 OK
+INFO:     2a14:7c1:498a::1:0 - "GET /wp-json/ HTTP/1.1" 404 Not Found
+INFO:     2a14:7c1:498a::1:0 - "GET /xmlrpc.php?rsd HTTP/1.1" 404 Not Found
+INFO:     2a05:9403::5f9:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2604:a880:400:d0::24e2:b001:0 - "GET / HTTP/1.1" 200 OK
+INFO:     178.128.207.138:0 - "GET / HTTP/1.1" 200 OK
+INFO:     207.154.212.47:0 - "GET / HTTP/1.1" 200 OK
+INFO:     178.128.207.138:0 - "GET /console/ HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /console/ HTTP/1.1" 404 Not Found
+INFO:     2604:a880:400:d0::b6e:e001:0 - "GET / HTTP/1.1" 200 OK
+INFO:     178.128.207.138:0 - "GET /server HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /server HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /server-status HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /server-status HTTP/1.1" 404 Not Found
+INFO:     184.22.49.152:0 - "GET /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /about HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /about HTTP/1.1" 404 Not Found
+INFO:     184.22.49.152:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /login.action HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /login.action HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET / HTTP/1.1" 200 OK
+INFO:     207.154.212.47:0 - "GET / HTTP/1.1" 200 OK
+INFO:     178.128.207.138:0 - "GET /___proxy_subdomain_whm/login HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /___proxy_subdomain_whm/login HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /___proxy_subdomain_cpanel HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /___proxy_subdomain_cpanel HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /v2/_catalog HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /v2/_catalog HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /.DS_Store HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /.DS_Store HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "POST /graphql HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "POST /api HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "POST /graphql HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "POST /api/graphql HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "POST /api HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "POST /graphql/api HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "POST /api/graphql HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "POST /api/gql HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "POST /graphql/api HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "GET /s/731323e2535313e24383e2330313/_/%3B/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "POST /api/gql HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "GET /config.json HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /s/335313e2535313e24383e2330313/_/%3B/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /telescope/requests HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /config.json HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /info.php HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /telescope/requests HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /.well-known/security.txt HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /info.php HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /actuator/env HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /.well-known/security.txt HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /trace.axd HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /actuator/env HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /%40vite/env HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /trace.axd HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /.vscode/sftp.json HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "GET /%40vite/env HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "OPTIONS / HTTP/1.1" 405 Method Not Allowed
+INFO:     207.154.212.47:0 - "GET /.vscode/sftp.json HTTP/1.1" 404 Not Found
+INFO:     178.128.207.138:0 - "GET /?rest_route=/wp/v2/users/ HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     207.154.212.47:0 - "OPTIONS / HTTP/1.1" 405 Method Not Allowed
+INFO:     178.128.207.138:0 - "GET /debug/default/view?panel=config HTTP/1.1" 404 Not Found
+INFO:     202.78.167.209:0 - "GET / HTTP/1.1" 200 OK
+INFO:     207.154.212.47:0 - "GET /?rest_route=/wp/v2/users/ HTTP/1.1" 200 OK
+INFO:     207.154.212.47:0 - "GET /debug/default/view?panel=config HTTP/1.1" 404 Not Found
+INFO:     148.113.205.188:0 - "GET / HTTP/1.1" 200 OK
+INFO:     148.113.205.188:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     103.196.9.110:0 - "GET / HTTP/1.1" 200 OK
+INFO:     103.196.9.110:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     103.196.9.110:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     188.94.86.33:0 - "GET / HTTP/1.1" 200 OK
+INFO:     188.94.86.33:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     188.94.86.33:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     103.196.9.110:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     Started server process [59729]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+INFO:     127.0.0.1:46154 - "HEAD /join/DHZS HTTP/1.1" 404 Not Found
+INFO:     188.94.86.33:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [59729]
+INFO:     Started server process [59895]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+INFO:     127.0.0.1:35850 - "HEAD /join/DHZS HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43480 - "HEAD /join/DHZS HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /join/DHZS HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /api/rooms/DHZS HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "GET /kiosk/DHZS HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/DHZS HTTP/1.1" 404 Not Found
+INFO:     100.89.137.41:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/RN89 HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "WebSocket /ws/rooms/RN89/display" [accepted]
+INFO:     connection open
+INFO:     100.89.137.41:0 - "GET /join/RN89 HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/RN89 HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /join/RN89 HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /api/rooms/RN89 HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "POST /api/rooms/RN89/join HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /api/rooms/routines HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "GET /api/rooms/RN89 HTTP/1.1" 200 OK
+INFO:     184.22.49.152:0 - "WebSocket /ws/rooms/RN89/controller" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     connection closed
+INFO:     65.21.124.77:0 - "GET / HTTP/1.1" 200 OK
+INFO:     65.21.124.77:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     54.86.115.253:0 - "GET / HTTP/1.1" 200 OK
+INFO:     146.190.237.59:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a03:b0c0:2:f0:0:1:ba0c:d001:0 - "GET / HTTP/1.1" 200 OK
+INFO:     146.190.237.59:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     2a03:b0c0:2:f0:0:1:ba0c:d001:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     3.236.137.211:0 - "GET / HTTP/1.1" 200 OK
+INFO:     3.236.137.211:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     3.236.137.211:0 - "GET /favicon.png HTTP/1.1" 200 OK
+INFO:     74.7.244.38:0 - "GET /robots.txt HTTP/1.1" 200 OK
+INFO:     74.7.241.31:0 - "GET / HTTP/1.1" 200 OK
+INFO:     74.7.241.31:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     74.7.241.31:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     185.254.75.25:0 - "GET / HTTP/1.1" 200 OK
+INFO:     185.254.75.25:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     216.73.216.15:0 - "GET /robots.txt HTTP/1.1" 200 OK
+INFO:     216.73.216.15:0 - "GET / HTTP/1.1" 200 OK
+INFO:     34.221.182.199:0 - "GET / HTTP/1.1" 200 OK
+INFO:     34.221.182.199:0 - "GET / HTTP/1.1" 200 OK
+INFO:     155.2.228.196:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     54.202.23.182:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     45.130.203.208:0 - "GET /.git/HEAD HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 304 Not Modified
+INFO:     216.73.216.15:0 - "GET /robots.txt HTTP/1.1" 200 OK
+INFO:     216.73.216.15:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 304 Not Modified
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 304 Not Modified
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     147.92.179.112:0 - "GET / HTTP/1.1" 200 OK
+INFO:     147.92.179.110:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "GET /api/rooms/ZDDC HTTP/1.1" 200 OK
+INFO:     2001:44c8:6114:60ac:18bc:287b:e54d:d9ca:0 - "WebSocket /ws/rooms/ZDDC/display" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "WebSocket /ws/rooms/YS86/display" [accepted]
+INFO:     connection open
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /join/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/join HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/routines HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "WebSocket /ws/rooms/YS86/controller" [accepted]
+INFO:     connection open
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/routine HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/routine HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/commands HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/join HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/routines HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "GET /api/rooms/YS86 HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "WebSocket /ws/rooms/YS86/controller" [accepted]
+INFO:     connection open
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/routine HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/commands HTTP/1.1" 200 OK
+INFO:     2405:9800:b860:a52e:f9ad:a6a8:ca5f:4e16:0 - "POST /api/rooms/YS86/commands HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     216.73.216.15:0 - "GET /sitemap.xml HTTP/1.1" 200 OK
+ConnectionClosedError exception in shielded future
+future: <Future finished exception=ConnectionClosedError(None, Close(code=<CloseCode.INTERNAL_ERROR: 1011>, reason='keepalive ping timeout'), None)>
+Traceback (most recent call last):
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/protocol.py", line 1276, in close_connection
+    await self.transfer_data_task
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/protocol.py", line 940, in transfer_data
+    message = await self.read_message()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/protocol.py", line 1010, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/protocol.py", line 1087, in read_data_frame
+    frame = await self.read_frame(max_size)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+            ^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "/home/armmy-server/Yuedmai/backend/.venv/lib/python3.14/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+           ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/asyncio/streams.py", line 769, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib/python3.14/asyncio/streams.py", line 539, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+INFO:     connection closed
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     2405:9800:b661:54d9:c9c4:933c:1555:8573:0 - "GET /api/rooms/8ZS8 HTTP/1.1" 200 OK
+INFO:     184.22.42.68:0 - "WebSocket /ws/rooms/8ZS8/display" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     54.247.57.72:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "HEAD /favicon.ico HTTP/1.1" 200 OK
+INFO:     54.247.57.72:0 - "GET /favicon.ico HTTP/1.1" 200 OK
+INFO:     34.90.72.216:0 - "GET / HTTP/1.1" 200 OK
+INFO:     34.143.200.154:0 - "GET / HTTP/1.1" 200 OK
+INFO:     34.143.200.154:0 - "GET /wordpress/ HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET / HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /%22/assets/index-Ck25BUMP.js%22 HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.bak HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.save HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.local HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /backend/.env HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /admin-panel/.env HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /credentials HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /test.php HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.staging HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.backup HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.orig HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.old HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.tmp HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.php.bak HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.php HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.txt HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.prod HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.env.dev HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /config.json.save HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /admin/.env HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /.git/config HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /wp-config.php HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /wp-config.php.old HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /config.php HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /config.php.bak HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /config.js HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /aws-config.js HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /aws.config.js HTTP/1.1" 200 OK
+INFO:     45.148.10.62:0 - "GET /phpinfo.php HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-Ck25BUMP.js HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "GET /assets/index-7hvixuWz.css HTTP/1.1" 304 Not Modified
+INFO:     100.89.137.41:0 - "POST /api/rooms HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/H85H HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "WebSocket /ws/rooms/H85H/display" [accepted]
+INFO:     connection open
+INFO:     100.89.137.41:0 - "GET /join/H85H HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/H85H HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "POST /api/rooms/H85H/join HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/H85H HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "GET /api/rooms/routines HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "WebSocket /ws/rooms/H85H/controller" [accepted]
+INFO:     connection open
+INFO:     100.89.137.41:0 - "POST /api/rooms/H85H/routine HTTP/1.1" 200 OK
+INFO:     100.89.137.41:0 - "POST /api/rooms/H85H/commands HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     147.92.179.117:0 - "GET / HTTP/1.1" 200 OK
+INFO:     connection closed
+INFO:     194.35.235.21:0 - "GET / HTTP/1.1" 200 OK

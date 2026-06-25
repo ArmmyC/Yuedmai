@@ -2,11 +2,11 @@ const API_BASE = import.meta.env.VITE_API_BASE || defaultApiBase();
 const WS_BASE = API_BASE.replace(/^http/, "ws");
 
 function defaultApiBase() {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || import.meta.env.DEV) {
     return "http://localhost:8000";
   }
 
-  return `${window.location.protocol}//${window.location.hostname}:8000`;
+  return window.location.origin;
 }
 
 export class ApiError extends Error {
